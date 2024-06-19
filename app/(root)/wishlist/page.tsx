@@ -33,14 +33,34 @@ const Wishlist = () => {
   const getWishlistProducts = async () => {
     setLoading(true)
 
-    if (!signedInUser) return
+    if (!signedInUser) return;
 
-    const wishlistProducts = await Promise.all(signedInUser.wishlist.map(async (productId) => {
-      const res = await getProductDetails(productId)
-      return res
-    }))
-
-    setWishlist(wishlistProducts)
+    // Ensure the wishlist is defined and is an array
+    if (!signedInUser.wishlist || !Array.isArray(signedInUser.wishlist)) {
+      console.error("Wishlist is not defined or is not an array");
+      return;
+    }
+    
+    try {
+      const wishlistProducts = await Promise.all(signedInUser.wishlist.map(async (productId) => {
+        try {
+          const res = await getProductDetails(productId);
+          return res;
+        } catch (error) {
+          console.error(`Error fetching details for product ${productId}:`, error);
+          return null; // Handle or log the error for individual products
+        }
+      }));
+    
+      // Filter out any null results (in case of errors)
+      const validWishlistProducts = wishlistProducts.filter(product => product !== null);
+    
+      // Update the state with valid wishlist products
+      setWishlist(validWishlistProducts);
+    } catch (error) {
+      console.error("Error fetching wishlist products:", error);
+    }
+    
     setLoading(false)
   }
 
