@@ -4,7 +4,7 @@ import { Menu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect, SetStateAction } from "react";
+import { useState, useEffect } from "react";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -56,13 +56,10 @@ const Navbar = () => {
             <Link
               key={href}
               href={href}
-              className={`relative px-5 py-3 text-white bg-black rounded-full shadow-md transition-all duration-150 ease-linear hover:shadow-lg hover:bg-gray-100 hover:text-black ${
-                pathname === href ? "font-bold" : "font-normal"
-              } ${activeLink === href.replace("/", "") ? "active" : ""}`}
+              className={`relative px-5 py-3 text-white bg-black rounded-full shadow-md transition-all duration-150 ease-linear hover:shadow-lg hover:bg-gray-100 hover:text-black font-bold ${activeLink === href.replace("/", "") ? "active" : ""}`}
               onClick={() => onUpdateActiveLink(href.replace("/", ""))}
             >
               {label}
-          
             </Link>
           ))}
         </div>
@@ -98,28 +95,6 @@ const Navbar = () => {
         </div>
       </div>
     </div>
-  );
-};
-
-interface NavItemProps {
-  href: string;
-  text: string;
-  active: boolean;
-  onUpdateActiveLink: (value: SetStateAction<string>) => void;
-}
-
-const NavItem: React.FC<NavItemProps> = ({ href, text, active, onUpdateActiveLink }) => {
-  return (
-    <Link href={href} passHref legacyBehavior>
-      <a
-        className={`relative px-4 py-2 transition-all duration-300 ${
-          active ? 'text-gray-300 border-2 border-white rounded-full' : 'hover:border-2 hover:border-white hover:rounded-full'
-        }`}
-        onClick={() => onUpdateActiveLink(text.toLowerCase().replace(/\s/g, '-'))}
-      >
-        {text}
-      </a>
-    </Link>
   );
 };
 
