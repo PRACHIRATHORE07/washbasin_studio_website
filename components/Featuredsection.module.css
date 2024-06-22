@@ -1,0 +1,44 @@
+.featuredSection {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1); /* Foggy white background */
+    border-radius: 8px;
+    margin: 20px;
+  }
+  
+  .heading {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffffff;
+  }
+  
+  .featuredItems {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .featuredItem {
+    background: rgba(255, 255, 255, 0.1); /* Foggy white background */
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 30%;
+    color: #ffffff;
+  }
+  
+  .image {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+  
+  .featuredItem h3 {
+    margin: 10px 0;
+    color: #ffffff;
+  }
+  
+  .featuredItem p {
+    color: #cccccc;
+  }
+  

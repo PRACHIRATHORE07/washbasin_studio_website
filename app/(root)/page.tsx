@@ -1,6 +1,7 @@
+import Image from 'next/image'; 
 import Collections from "@/components/Collections";
 import ProductList from "@/components/ProductList";
-import Image from "next/image";
+import FeaturedSection from "@/components/FeaturedSection";
 
 export default function Home() {
   return (
@@ -15,19 +16,19 @@ export default function Home() {
             Create a Captivating Look.
           </p>
         </div>
-        <div className="w-1/2" >
+        <div className="w-1/2">
           <Image
             src="/banner-img.png"
             alt="Banner"
-            width={400} // Adjust width to fit the design
-            height={200} // Adjust height to fit the design
-            style={{ height: '550px' }}
+            width={400}
+            height={550}
             className="w-full h-auto"
           />
         </div>
       </div>
       <Collections />
       <ProductList />
+      <FeaturedSection />
     </>
   );
 }
