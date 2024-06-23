@@ -40,6 +40,12 @@ const featuredItems: FeaturedItem[] = [
     description: 'This is a brief description of the featured item.',
     imgSrc: '/images/featured5.jpg',
   },
+  {
+    id: 6,
+    title: 'Item 6',
+    description: 'This is a brief description of the featured item.',
+    imgSrc: '/images/featured6.jpg',
+  },
 ];
 
 const FeaturedSection: React.FC = () => {
