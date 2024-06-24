@@ -1,7 +1,10 @@
+import React from 'react';
 import Image from 'next/image'; 
 import Collections from "@/components/Collections";
 import ProductList from "@/components/ProductList";
 import FeaturedSection from "@/components/FeaturedSection";
+import Testimonial from "@/components/Testimonial";
+
 
 
 export default function Home() {
@@ -33,6 +36,7 @@ export default function Home() {
       {/* <Collections /> */}
       <ProductList />
       <FeaturedSection />
+      <Testimonial/>
     </>
   );
 }
