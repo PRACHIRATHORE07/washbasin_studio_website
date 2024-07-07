@@ -33,7 +33,7 @@ const Navbar = () => {
   return (
     <div>
       <div
-        className={`sticky top-0 z-10 py-4 px-10 flex justify-between items-center text-white bg-black max-sm:px-2 ${
+        className={`sticky top-0 z-10 py-4 px-10 flex justify-between items-center text-white bg-transparent max-sm:px-2 ${
           scrolled ? "bg-opacity-90" : ""
         }`}
       >
@@ -56,7 +56,7 @@ const Navbar = () => {
             <Link
               key={href}
               href={href}
-              className={`relative px-5 py-3 text-white bg-black rounded-full shadow-md transition-all duration-150 ease-linear hover:shadow-lg hover:bg-gray-100 hover:text-black font-bold ${activeLink === href.replace("/", "") ? "active" : ""}`}
+              className={`relative px-5 py-3 text-white bg-transparent rounded-full shadow-md transition-all duration-150 ease-linear hover:shadow-lg hover:bg-gray-100 hover:text-black font-bold ${activeLink === href.replace("/", "") ? "active" : ""}`}
               onClick={() => onUpdateActiveLink(href.replace("/", ""))}
             >
               {label}
