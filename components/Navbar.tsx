@@ -48,7 +48,7 @@ const Navbar = () => {
         <div className="flex gap-8 text-base max-lg:hidden mr-20">
           {[
             { href: "/", label: "Home" },
-            { href: "/sale", label: "Sale" },
+            { href: "/categories", label: "Collections" },
             { href: "/cart", label: "Cart" },
             { href: "/about-us", label: "About Us" },
             { href: "/inquiry", label: "Inquiry" },
@@ -75,7 +75,7 @@ const Navbar = () => {
               <Link href="/" onClick={() => onUpdateActiveLink("home")}>
                 Home
               </Link>
-              <Link href="/sale" onClick={() => onUpdateActiveLink("sale")}>
+              <Link href="/categories" onClick={() => onUpdateActiveLink("Collections")}>
                 Sale
               </Link>
               <Link href="/cart" onClick={() => onUpdateActiveLink("cart")}>
