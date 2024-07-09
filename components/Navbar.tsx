@@ -48,10 +48,10 @@ const Navbar = () => {
         <div className="flex gap-8 text-base max-lg:hidden mr-20">
           {[
             { href: "/", label: "Home" },
-            { href: "/sale", label: "Sale" },
-            { href: "/cart", label: "Cart" },
+            { href: "/sale", label: "Categories" },
+            // { href: "/cart", label: "Cart" },
             { href: "/about-us", label: "About Us" },
-            { href: "/inquiry", label: "Inquiry" },
+            // { href: "/inquiry", label: "Enquiry" },
           ].map(({ href, label }) => (
             <Link
               key={href}
