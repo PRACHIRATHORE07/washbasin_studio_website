@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^4.29.7",
+    "@gsap/react": "^2.1.1",
     "@stripe/stripe-js": "^3.0.6",
+    "gsap": "^3.12.5",
     "lucide-react": "^0.341.0",
     "mongoose": "^8.2.0",
     "next": "^14.2.4",

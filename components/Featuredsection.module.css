@@ -1,8 +1,28 @@
+@keyframes scrollLeftRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes scrollRightLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Existing styles remain unchanged */
 .featuredSection {
   padding: 20px;
-  background-color: black; /* Background color */
+  background-color: black;
   border-radius: 8px;
   margin: 18px;
+  overflow: hidden;
 }
 
 .heading {
@@ -15,32 +35,72 @@
 .featuredItems {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px; /* Space between items */
+  gap: 20px;
 }
 
 .featuredItem {
-  background: black; /* Background color */
+  background: black;
   padding: 20px;
   margin: 10px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
   color: #ffffff;
-  opacity: 0; /* Initially hide items */
-  animation: fadeIn 0.5s ease forwards;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInUp 0.8s ease forwards;
 }
 
-@keyframes fadeIn {
-  to {
-    opacity: 1; /* Fade in animation */
-  }
+.featuredItem:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.featuredItem:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.featuredItem:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.featuredItem:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+.featuredItem:nth-child(5) {
+  animation-delay: 1s;
+}
+
+.featuredItem:nth-child(6) {
+  animation-delay: 1.2s;
 }
 
 .image {
   max-width: 100%;
   border-radius: 1px;
-  margin: 0 auto; /* Center the image horizontally */
-  display: block; /* Ensure the image is displayed as a block element */
+  margin: 0 auto;
+  display: block;
+  opacity: 0.7;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.featuredItemOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.featuredItem:hover .image {
+  opacity: 1;
+}
+
+.featuredItem:hover .featuredItemOverlay {
+  opacity: 0;
 }
 
 .featuredItem h3 {
@@ -48,7 +108,15 @@
   color: #ffffff;
 }
 
-.featuredItem p {
-  color: #cccccc;
+.firstRow {
+  display: flex;
+  overflow: hidden;
+  animation: scrollLeftRight 20s linear infinite;
+}
+
+.secondRow {
+  display: flex;
+  overflow: hidden;
+  animation: scrollRightLeft 20s linear infinite;
 }
 
