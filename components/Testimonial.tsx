@@ -1,4 +1,6 @@
-import React from 'react';
+"use client"; // Ensure this is at the top of your file
+
+import React, { useRef, useEffect } from 'react';
 import './Testimonial.css';
 
 const testimonialsData = [
@@ -20,15 +22,37 @@ const testimonialsData = [
 ];
 
 const Testimonial = () => {
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const container = containerRef.current;
+        if (!container) return;
+
+        const handleScroll = () => {
+            const testimonials = container.querySelectorAll('.testimonial');
+            testimonials.forEach((testimonial) => {
+                const rect = testimonial.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                    testimonial.classList.add('visible');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Initial check on component mount
+        
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     return (
-        <div className="testimonials-container text-white">
+        <div className="testimonials-container text-white text-center p-8" ref={containerRef}>
             <h2>Testimonials</h2>
-            <div className="testimonials">
+            <div className="testimonials flex flex-wrap justify-center gap-8">
                 {testimonialsData.map((testimonial, index) => (
                     <div key={index} className="testimonial">
-                        <img src={testimonial.image} alt={testimonial.name} />
-                        <p className="quote">"{testimonial.quote}"</p>
-                        <p className="name">- {testimonial.name}</p>
+                        <img src={testimonial.image} alt={testimonial.name} className="rounded-full w-24 h-24 object-cover mx-auto" />
+                        <p id={`quote-${index}`} className="quote typing-effect my-4">"{testimonial.quote}"</p>
+                        <p className="name font-bold">- {testimonial.name}</p>
                     </div>
                 ))}
             </div>
@@ -37,3 +61,9 @@ const Testimonial = () => {
 };
 
 export default Testimonial;
+
+
+
+
+
+
