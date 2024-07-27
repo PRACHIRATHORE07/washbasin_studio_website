@@ -1,65 +1,52 @@
-/* Typing effect */
-@keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
-}
-
-.typing-effect {
-    overflow: hidden;
-    white-space: nowrap;
-    animation: typing 3s steps(40, end) both;
-}
-
-/* Testimonial container animations */
-.testimonial {
-    background: #202020;
-    padding: 1rem;
-    border-radius: 10px;
-    width: 300px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    margin-bottom: 3rem; /* Adjusted margin for spacing between containers */
-    opacity: 0;
-    transform: translateY(50px);
-    transition: transform 0.5s ease-out, opacity 1s ease-out, box-shadow 0.3s ease-in-out;
-}
-
-.testimonial.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.testimonial:hover {
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-    transform: translateY(-10px) scale(1.05); /* Pop-out effect */
-}
-
-.testimonial img {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-}
-
-.quote {
-    font-style: italic;
-    margin: 1rem 0;
-}
-
-.name {
-    font-weight: bold;
-    color: #f5f3f3;
-}
-
 .testimonials-container {
-    text-align: center;
     padding: 2rem;
-    margin-top: 6rem; /* Increase margin to push containers further down */
 }
 
-.testimonials {
+.scroller {
+    position: relative;
+    overflow: hidden;
+}
+
+.scroller ul {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
+    flex-wrap: nowrap;
+    min-width: 100%;
+    gap: 1rem;
+    animation: scroll 40s linear infinite;
+}
+
+.scroller ul li {
+    display: flex;
+    flex-direction: column;
+    background-color: #2d2d2d; /* gray color */
+    border-radius: 1rem;
+    padding: 1rem;
+    border: 1px solid #444; /* darker gray border */
+    width: 500px;
+    height: auto; /* Increased height */
+}
+
+.scroller ul li img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    object-cover: cover;
+}
+
+.scroller ul li .quote {
+    margin-bottom: 0.5rem;
+    color: #fff;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.scroller ul li .name {
+    margin-top: 0.5rem;
+    color: #ccc;
+    font-weight: bold;
+}
+
+@keyframes scroll {
+    to {
+        transform: translateX(-50%);
+    }
 }
