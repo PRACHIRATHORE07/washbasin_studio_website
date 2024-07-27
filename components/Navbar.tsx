@@ -48,8 +48,10 @@ const Navbar = () => {
         <div className="flex gap-8 text-base max-lg:hidden mr-20">
           {[
             { href: "/", label: "Home" },
+
             { href: "/categories", label: "Categories" },
             { href: "/cart", label: "Cart" },
+
             { href: "/about-us", label: "About Us" },
             // { href: "/inquiry", label: "Enquiry" },
           ].map(({ href, label }) => (
@@ -75,11 +77,14 @@ const Navbar = () => {
               <Link href="/" onClick={() => onUpdateActiveLink("home")}>
                 Home
               </Link>
+
               <Link href="/categories" onClick={() => onUpdateActiveLink("categories")}>
                 Categories
               </Link>
               <Link href="/cart" onClick={() => onUpdateActiveLink("cart")}>
                 Cart
+
+
               </Link>
               <Link
                 href="/about-us"
@@ -87,9 +92,9 @@ const Navbar = () => {
               >
                 About Us
               </Link>
-              <Link href="/inquiry" onClick={() => onUpdateActiveLink("inquiry")}>
+              {/* <Link href="/inquiry" onClick={() => onUpdateActiveLink("inquiry")}>
                 Inquiry
-              </Link>
+              </Link> */}
             </div>
           )}
         </div>

@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React from 'react'; 
 import ProductList from "@/components/ProductList";
 import Collections from "@/components/Collections";
 import FeaturedSection from "@/components/FeaturedSection";
