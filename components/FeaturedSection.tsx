@@ -1,6 +1,5 @@
-"use client"; // Add this line at the top
-
-import React, { useEffect, useRef } from 'react';
+"use client";
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import styles from './FeaturedSection.module.css';
 
@@ -43,8 +42,11 @@ const featuredItems: FeaturedItem[] = [
   },
 ];
 
-const FeaturedSection: React.FC = () => {
+const FeaturedSection = () => {
   const sectionRef = useRef<HTMLDivElement | null>(null);
+  const [scrolled, setScrolled] = useState(false);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<FeaturedItem | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,10 +54,9 @@ const FeaturedSection: React.FC = () => {
       if (section) {
         const { top } = section.getBoundingClientRect();
         if (top < window.innerHeight) {
-          const items = section.querySelectorAll(`.${styles.featuredItem}`);
-          items.forEach(item => {
-            item.classList.add(styles.visible);
-          });
+          setScrolled(true);
+        } else {
+          setScrolled(false);
         }
       }
     };
@@ -64,29 +65,87 @@ const FeaturedSection: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleClick = (item: FeaturedItem) => {
+    setSelectedImage(item);
+    setLightboxOpen(true);
+  };
+
+  const handleCloseLightbox = () => {
+    setLightboxOpen(false);
+  };
+
   return (
     <div ref={sectionRef} className={styles.featuredSection}>
       <h2 className={styles.heading}>Featured Items</h2>
       <div className={styles.featuredItems}>
         <div className={styles.firstRow}>
-          {featuredItems.slice(0, 3).map(item => (
-            <div key={item.id} className={styles.featuredItem}>
-              <Image src={item.imgSrc} alt={`Featured ${item.title}`} width={300} height={200} className={styles.image} />
+          {featuredItems.slice(0, 3).map((item) => (
+            <div
+              key={item.id}
+              className={`${styles.featuredItem} ${scrolled ? styles.scrolled : ''}`}
+              style={{ margin: '20px' }} // add margin between images
+            >
+              <Image
+                src={item.imgSrc}
+                alt={item.title}
+                width={500} // increase image width
+                height={350} // increase image height
+                className={styles.image}
+                style={{
+                  objectFit: 'cover',
+                  width: '100%',
+                  height: '100%',
+                }}
+                onClick={() => handleClick(item)}
+              />
               <div className={styles.featuredItemOverlay}></div>
-              <h3>{item.title}</h3>
             </div>
           ))}
         </div>
         <div className={styles.secondRow}>
-          {featuredItems.slice(3).map(item => (
-            <div key={item.id} className={styles.featuredItem}>
-              <Image src={item.imgSrc} alt={`Featured ${item.title}`} width={300} height={200} className={styles.image} />
+          {featuredItems.slice(3).map((item) => (
+            <div
+              key={item.id}
+              className={`${styles.featuredItem} ${scrolled ? styles.scrolled : ''}`}
+              style={{ margin: '20px' }} // add margin between images
+            >
+              <Image
+                src={item.imgSrc}
+                alt={item.title}
+                width={500} // increase image width
+                height={350} // increase image height
+                className={styles.image}
+                style={{
+                  objectFit: 'cover',
+                  width: '100%',
+                  height: '100%',
+                }}
+                onClick={() => handleClick(item)}
+              />
               <div className={styles.featuredItemOverlay}></div>
-              <h3>{item.title}</h3>
             </div>
           ))}
         </div>
       </div>
+      {lightboxOpen && selectedImage && (
+        <div className={styles.lightbox}>
+          <Image
+            src={selectedImage.imgSrc}
+            alt={selectedImage.title}
+            width={1200} // increase lightbox image width
+            height={900} // increase lightbox image height
+            className={styles.lightboxImage}
+            style={{
+              objectFit: 'contain',
+              width: '100%',
+              height: '100%',
+            }}
+          />
+          <span className={styles.lightboxClose} onClick={handleCloseLightbox}>
+            &times;
+          </span>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,25 +1,7 @@
-@keyframes scrollLeftRight {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes scrollRightLeft {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(100%);
-  }
-}
-
-/* Existing styles remain unchanged */
 .featuredSection {
   padding: 20px;
-  background-color: black;
+  background-color: #1a1a1a;
+  /* dark black theme */
   border-radius: 8px;
   margin: 18px;
   overflow: hidden;
@@ -28,60 +10,56 @@
 .heading {
   text-align: center;
   margin-bottom: 20px;
-  color: #ffffff;
+  color: #fff;
+  /* white text color */
   font-size: 3em;
 }
 
 .featuredItems {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 20px;
 }
 
 .featuredItem {
-  background: black;
+  background: #2f2f2f;
+  /* dark gray background */
   padding: 20px;
   margin: 10px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   text-align: center;
-  color: #ffffff;
-  opacity: 0;
-  transform: translateY(50px);
-  animation: fadeInUp 0.8s ease forwards;
+  color: #fff;
+  /* white text color */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  /* make image clickable */
+  border: 1px solid #fff;
+  /* add image border */
 }
 
-.featuredItem:nth-child(1) {
-  animation-delay: 0.2s;
-}
-
-.featuredItem:nth-child(2) {
-  animation-delay: 0.4s;
-}
-
-.featuredItem:nth-child(3) {
-  animation-delay: 0.6s;
-}
-
-.featuredItem:nth-child(4) {
-  animation-delay: 0.8s;
-}
-
-.featuredItem:nth-child(5) {
-  animation-delay: 1s;
-}
-
-.featuredItem:nth-child(6) {
-  animation-delay: 1.2s;
-}
-
-.image {
-  max-width: 100%;
+.featuredItem img {
+  max-width: 150%;
+  max-height: 200px;
   border-radius: 1px;
   margin: 0 auto;
   display: block;
-  opacity: 0.7;
-  transition: opacity 0.3s ease-in-out;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.featuredItem:hover img {
+  opacity: 0.8;
+  transform: scale(1.1);
+  /* zoom in on hover */
+}
+
+.featuredItem:hover {
+  animation-play-state: paused;
+  /* stop animation on hover */
 }
 
 .featuredItemOverlay {
@@ -90,33 +68,103 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* dark overlay */
+  opacity: 0;
   transition: opacity 0.3s ease-in-out;
 }
 
-.featuredItem:hover .image {
-  opacity: 1;
-}
-
 .featuredItem:hover .featuredItemOverlay {
-  opacity: 0;
+  opacity: 1;
 }
 
 .featuredItem h3 {
   margin: 10px 0;
-  color: #ffffff;
+  color: #fff;
+  /* white text color */
+}
+
+.featuredItem p {
+  color: #fff;
+  /* white text color */
+  font-size: 16px;
 }
 
 .firstRow {
   display: flex;
-  overflow: hidden;
-  animation: scrollLeftRight 20s linear infinite;
+  justify-content: space-between;
+  animation: scrollLeft 10s linear infinite;
 }
 
 .secondRow {
   display: flex;
-  overflow: hidden;
-  animation: scrollRightLeft 20s linear infinite;
+  justify-content: space-between;
+  animation: scrollRight 10s linear infinite;
 }
 
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.featuredItems:hover .firstRow {
+  animation-play-state: paused;
+}
+
+.featuredItems:hover .secondRow {
+  animation-play-state: paused;
+}
+
+/* Add lightbox effect on click */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  /* dark background */
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox img {
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 1px;
+  margin: 0 auto;
+  display: block;
+}
+
+.lightbox:target {
+  display: flex;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.lightbox-close:hover {
+  color: #ccc;
+}

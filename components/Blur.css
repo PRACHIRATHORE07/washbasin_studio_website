@@ -1,31 +1,115 @@
+.blur-circle {
+  border-radius: 50%;
+  filter: blur(40px); /* Adjust blur density as needed */
+  position: absolute; /* Position the circle absolutely within the container */
+  transition: width 0.3s, height 0.3s, transform 0.3s, opacity 0.3s;
+}
+
+.white-circle {
+  background: rgb(164, 164, 164);
+}
+
+.sky-circle {
+  background: rgb(164, 164, 164); /* Sky color for the second circle */
+}
+
+.grey-circle {
+  background: rgb(164, 164, 164); /* Grey color for the third circle */
+}
+
 .circle-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh; /* Full height of the viewport */
-    overflow: hidden;
-  }
-  
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 48vw; /* Full height of the viewport */
+  overflow: hidden;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
   .blur-circle {
-    border-radius: 50%;
-    filter: blur(40px); /* Adjust blur density as needed */
-    position: absolute; /* Position the circle absolutely within the container */
+    filter: blur(30px); /* Adjust blur density for smaller screens */
   }
-  
-  .white-circle {
-    background: rgb(0, 75, 60);
+  .circle-container{
+    height: 50vw;
   }
-  
-  .sky-circle {
-    background: rgb(0, 17, 76); /* Sky color for the second circle */
+}
+
+@media (max-width: 920px){
+  .circle-container{
+    height: 52vw;
   }
-  
-  .banner-wcircle{
-    position: absolute;
-    top: 200px;
-    left: 1100px;
-    background: #A7B5B7;
-    border-radius: 50%;
-    filter: blur(150px);
+}
+
+@media (max-width: 768px) {
+  .blur-circle {
+    filter: blur(20px); /* Adjust blur density for smaller screens */
   }
+  .circle-container{
+    height: 54vw;
+  }
+}
+
+@media (max-width: 620px){
+  .circle-container{
+    height: 56vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .blur-circle {
+    filter: blur(10px); /* Adjust blur density for smaller screens */
+  }
+  .circle-container{
+    height: 58vw;
+  }
+}
+@media (max-width: 320px){
+  .circle-container{
+    height: 62vw;
+  }
+}
+
+
+.banner-wcircle {
+  position: absolute;
+  top: 20%;
+  left: 57%;
+  width: 70vh;
+  height: 70vh;
+  background: #ffffffc2;
+  border-radius: 50%;
+  filter: blur(300px);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .banner-wcircle {
+    width: 50vh;
+    height: 50vh;
+    top: 25%;
+    left: 55%;
+  }
+}
+
+@media (max-width: 768px) {
+  .banner-wcircle {
+    width: 40vh;
+    height: 40vh;
+    top: 30%;
+    left: 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-wcircle {
+    width: 30vh;
+    height: 30vh;
+    top: 35%;
+    left: 45%;
+  }
+}
+
+
