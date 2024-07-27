@@ -20,7 +20,7 @@ const ProductDetails = async ({ params }: { params: { productId: string }}) => {
           <div className="flex flex-wrap gap-16 mx-auto mt-8">
             {relatedProducts?.map((product: ProductType) => (
               <ProductCard key={product._id} product={product} />
-            ))}
+            ))}+
           </div>
         </div>
       </>
