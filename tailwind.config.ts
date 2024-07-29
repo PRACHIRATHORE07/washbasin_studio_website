@@ -1,10 +1,14 @@
 import type { Config } from "tailwindcss";
 
+const colors = require("tailwindcss/colors");
+const { default: flattenColorPalette } = require("tailwindcss/lib/util/flattenColorPalette");
+
 const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{ts,tsx}"
   ],
   theme: {
     fontSize: {
@@ -92,9 +96,31 @@ const config: Config = {
         "grey-1": "#F7F7F7",
         "grey-2": "#8A8A8A",
       },
+      animation: {
+        scroll:
+          "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+      },
+      keyframes: {
+        scroll: {
+          '0%': { transform: "translateX(0)" },
+          '100%': { transform: "translateX(-50%)" },
+        },
+      },
     },
   },
-  plugins: [require("tailwind-scrollbar-hide")],
-};
-export default config;
+  plugins: [
+    require("tailwind-scrollbar-hide"),
+    function addVariablesForColors({ addBase, theme }) {
+      let allColors = flattenColorPalette(theme("colors"));
+      let newVars = Object.fromEntries(
+        Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+      );
 
+      addBase({
+        ":root": newVars,
+      });
+    }
+  ],
+};
+
+export default config;

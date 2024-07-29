@@ -1,62 +1,52 @@
-/* src/Testimonial.css */
-
 .testimonials-container {
-    text-align: center;
     padding: 2rem;
 }
 
-.testimonials {
+.scroller {
+    position: relative;
+    overflow: hidden;
+}
+
+.scroller ul {
     display: flex;
-    flex-wrap: wrap; /* Ensure testimonials wrap properly */
-    justify-content: center; /* Center align testimonials */
-    gap: 2rem; /* Space between testimonials */
-    padding: 1rem;
+    flex-wrap: nowrap;
+    min-width: 100%;
+    gap: 1rem;
+    animation: scroll 40s linear infinite;
 }
 
-.testimonial {
-    background: #202020;
+.scroller ul li {
+    display: flex;
+    flex-direction: column;
+    background-color: #2d2d2d; /* gray color */
+    border-radius: 1rem;
     padding: 1rem;
-    border-radius: 10px;
-    width: 300px; /* Fixed width for each testimonial */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    margin-bottom: 2rem; /* Space between each testimonial */
+    border: 1px solid #444; /* darker gray border */
+    width: 500px;
+    height: auto; /* Increased height */
 }
 
-.testimonial img {
+.scroller ul li img {
+    width: 4rem;
+    height: 4rem;
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
+    object-cover: cover;
 }
 
-.quote {
-    font-style: italic;
-    margin: 1rem 0;
+.scroller ul li .quote {
+    margin-bottom: 0.5rem;
+    color: #fff;
+    font-family: "Times New Roman", Times, serif;
 }
 
-.name {
-    
+.scroller ul li .name {
+    margin-top: 0.5rem;
+    color: #ccc;
     font-weight: bold;
-    color: #f5f3f3;
 }
 
-/* Dot Navigation */
-.dot-navigation {
-    margin-top: 1rem;
-    text-align: center;
-}
-
-.dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: #f5f1f1;
-    margin: 0 5px;
-    cursor: pointer;
-}
-
-.dot.active {
-    background-color: #f1f1f1;
+@keyframes scroll {
+    to {
+        transform: translateX(-50%);
+    }
 }
