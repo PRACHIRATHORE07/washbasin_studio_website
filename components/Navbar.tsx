@@ -33,13 +33,13 @@ const Navbar = () => {
   return (
     <div>
       <div
-        className={`sticky top-0 z-10 py-4 px-10 flex justify-between items-center text-white bg-transparent max-sm:px-2 ${
+        className={`navbar sticky top-0 z-20 py-4  pr-10 flex justify-between items-center text-white bg-transparent max-sm:px-2 ${
           scrolled ? "bg-opacity-90" : ""
         }`}
       >
-        <div className="mr-20">
+        <div className="mr-20 ml-10">
           <Link href="/">
-            <Image src="/logo.png" alt="logo" width={200} height={150} />
+            <Image src="/logo.png" alt="logo" width={200} height={150} className="logo"/>
           </Link>
         </div>
 
@@ -48,12 +48,9 @@ const Navbar = () => {
         <div className="flex gap-8 text-base max-lg:hidden mr-20">
           {[
             { href: "/", label: "Home" },
-
             { href: "/categories", label: "Categories" },
-            { href: "/cart", label: "Cart" },
-
+            // { href: "/cart", label: "Cart" },
             { href: "/about-us", label: "About Us" },
-            // { href: "/inquiry", label: "Enquiry" },
           ].map(({ href, label }) => (
             <Link
               key={href}
@@ -73,7 +70,7 @@ const Navbar = () => {
           />
 
           {dropdownMenu && (
-            <div className="absolute top-12 right-5 flex flex-col gap-4 p-3 rounded-lg border bg-black text-base-bold lg:hidden">
+            <div className="dropdownMenu absolute top-12 right-5 flex flex-col gap-4 p-3 rounded-lg border bg-black text-base-bold lg:hidden">
               <Link href="/" onClick={() => onUpdateActiveLink("home")}>
                 Home
               </Link>
@@ -81,20 +78,15 @@ const Navbar = () => {
               <Link href="/categories" onClick={() => onUpdateActiveLink("categories")}>
                 Categories
               </Link>
-              <Link href="/cart" onClick={() => onUpdateActiveLink("cart")}>
+              {/* <Link href="/cart" onClick={() => onUpdateActiveLink("cart")}>
                 Cart
-
-
-              </Link>
+              </Link> */}
               <Link
                 href="/about-us"
                 onClick={() => onUpdateActiveLink("about-us")}
               >
                 About Us
               </Link>
-              {/* <Link href="/inquiry" onClick={() => onUpdateActiveLink("inquiry")}>
-                Inquiry
-              </Link> */}
             </div>
           )}
         </div>
