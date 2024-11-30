@@ -113,10 +113,14 @@ const config: Config = {
     require("tailwind-scrollbar-hide"),
     function addVariablesForColors({ addBase, theme }: PluginAPI) {
       const allColors = flattenColorPalette(theme("colors"));
-      const newVars = Object.fromEntries(
-        Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+      
+      const newVars: { [key: string]: string } = Object.fromEntries(
+        Object.entries(allColors).map(([key, val]) => {
+          return [`--${key}`, typeof val === 'string' ? val : 'transparent']; 
+        })
       );
 
+ 
       addBase({
         ":root": newVars,
       });
