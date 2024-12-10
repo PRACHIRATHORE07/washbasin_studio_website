@@ -2,14 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'Microma Regular';
-  src: url('/fonts/Microma-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-
 html,
 body,
 :root {

@@ -13,8 +13,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 
 export const metadata: Metadata = {
-  title: "THE WASHBASIN STUDIO",
-  description: "Artful Legacy Washbasins",
+  title: "Borcelle Store",
+  description: "Borcelle Ecommerce Store",
 };
 
 export default function RootLayout({

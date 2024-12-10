@@ -12,8 +12,6 @@
     "@clerk/nextjs": "^4.29.7",
     "@gsap/react": "^2.1.1",
     "@stripe/stripe-js": "^3.0.6",
-    "clsx": "^2.1.1",
-    "framer-motion": "^11.3.18",
     "gsap": "^3.12.5",
     "lucide-react": "^0.341.0",
     "mongoose": "^8.2.0",
@@ -23,7 +21,6 @@
     "react-dom": "^18",
     "react-hot-toast": "^2.4.1",
     "stripe": "^14.18.0",
-    "tailwind-merge": "^2.4.0",
     "tailwind-scrollbar-hide": "^1.1.7",
     "zustand": "^4.5.1"
   },
