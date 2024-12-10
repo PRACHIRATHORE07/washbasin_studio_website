@@ -19,7 +19,6 @@ type ProductType = {
   colors: [string];
   createdAt: string;
   updatedAt: string;
-  isFeatured: boolean;
 };
 
 type UserType = {
