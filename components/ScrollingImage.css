@@ -1,0 +1,67 @@
+/* Outer container for the scrolling effect */
+.scrolling-container {
+    position: relative;
+    overflow: hidden; /* Hide overflowing content */
+    width: 100%; /* Full width of viewport */
+    height: 70px; /* Set a fixed height */
+    margin-top: 5vh;
+    margin-bottom: 7vh;
+  }
+  
+  /* The scrolling track containing images */
+  .scrolling-track {
+    display: flex; /* Lay images horizontally */
+    width: calc(300%); /* Double the container width for seamless looping */
+    animation: scroll-left linear infinite; /* Continuous scrolling */
+    animation-duration: 15s; /* Adjust speed as desired */
+  }
+  
+  /* Individual images in the track */
+  .scrolling-image {
+    width: 55%; /* Each image fills the container width */
+    height: 50px; /* Maintain aspect ratio */
+    flex-shrink: 0; /* Prevent images from shrinking */
+  }
+  
+  @media(max-width: 934px){
+    .scrolling-image {
+        width: 60%; /* Each image fills the container width */
+        height: 45px; /* Maintain aspect ratio */
+        flex-shrink: 0; /* Prevent images from shrinking */
+      }
+  }
+  
+  @media (max-width: 768px) {
+    .scrolling-image {
+        width: 60%; /* Each image fills the container width */
+        height: 40px; /* Maintain aspect ratio */
+        flex-shrink: 0; /* Prevent images from shrinking */
+      }
+  }
+  
+  @media(max-width: 600px){
+    .scrolling-image {
+        width: 75%; /* Each image fills the container width */
+        height: 40px; /* Maintain aspect ratio */
+        flex-shrink: 0; /* Prevent images from shrinking */
+      }
+  }
+  
+  @media(max-width: 474px){
+    .scrolling-image {
+        width: 60%; /* Each image fills the container width */
+        height: 35px; /* Maintain aspect ratio */
+        flex-shrink: 0; /* Prevent images from shrinking */
+      }
+  }
+
+  /* Keyframes for seamless scrolling */
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0); /* Start position */
+    }
+    100% {
+      transform: translateX(-100%); /* Move one container width left */
+    }
+  }
+  

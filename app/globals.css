@@ -8,3 +8,26 @@ body,
   height: 100%;
   @apply bg-black h-screen;
 }
+
+.logo {
+  width: 200px; /* Default size for larger screens */
+  height: auto; /* Maintain aspect ratio */
+}
+
+@media (max-width: 1024px) {
+  .logo {
+    width: 150px; /* Adjust for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .logo {
+    width: 100px; /* Adjust for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    width: 80px; /* Adjust for extra small screens */
+  }
+}

@@ -1,0 +1,157 @@
+.bannerContainer {
+  position: relative;
+  width: 100%;
+  height: 45vw;
+  overflow: hidden;
+  background-image: url('/washbasin.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+
+@media(max-width: 934px){
+  .bannerContainer {
+    height: 70vh;
+    background-attachment: fixed; /* Disable parallax on mobile */
+}
+}
+
+@media (max-width: 768px) {
+  .bannerContainer {
+      height: 50vh;
+      background-attachment: scroll; /* Disable parallax on mobile */
+  }
+}
+
+@media(max-width: 600px){
+  .bannerContainer {
+    height: 50vh;
+    background-attachment: scroll; /* Disable parallax on mobile */
+}
+}
+
+@media(max-width: 474px){
+  .bannerContainer {
+    height: 60vw;
+    background-attachment: scroll; /* Disable parallax on mobile */
+}
+}
+
+.overlayRectangle {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translateY(-50%);
+  width: 40%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.41);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8vw;
+}
+
+@media(max-width: 934px){
+  .overlayRectangle {
+    width: 48vw;           /* Adjust width for smaller screens */
+    left: 0%;            /* Keep centered */
+    height: 38vw;          /* Reduced by 20% (80% * 0.8 = 64%) */
+    padding: 6vw;        /* Reduce padding */
+}
+}
+
+@media (max-width: 768px) {
+  .overlayRectangle {
+    width: 40vw;           /* Adjust width for smaller screens */
+    left: 8vw;            /* Keep centered */
+    height: 36vw;          /* Reduced by 20% (80% * 0.8 = 64%) */
+    padding: 5vw;        /* Reduce padding */
+}
+}
+
+@media(max-width: 603px){
+  .overlayRectangle {
+    width: 48vw;           /* Adjust width for smaller screens */
+    left: 9vw;            /* Keep centered */
+    height: 42vw;          /* Reduced by 20% (80% * 0.8 = 64%) */
+    padding: 5vw;        /* Reduce padding */
+}
+}
+
+@media(max-width: 474px){
+  .overlayRectangle {
+    width: 100%;           /* Adjust width for smaller screens */
+    left: 0%;            /* Keep centered */
+    height: 100%;          /* Reduced by 20% (80% * 0.8 = 64%) */
+    padding: 10vw;        /* Reduce padding */
+}
+}
+
+
+.titleText {
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  font-size: 3vw;
+  color: #f4f4f4;
+}
+
+.subtitleText {
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  font-size: 1.5vw;
+  color: #c5c5c5;
+  margin-top: 8px;
+}
+
+.descriptionText {
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  font-size: 1.5vw;
+  color: #c5c5c5;
+  margin-top: 5px;
+}
+
+@media(max-width: 934px){
+  .titleText {
+    font-size: 3.4vw;     /* Reduced by 20% */
+}
+.subtitleText,
+.descriptionText {
+    font-size: 2vw;     /* Reduced by 20% */
+}
+}
+
+@media (max-width: 768px) {
+  .titleText {
+    font-size: 3vw;     /* Reduced by 20% */
+}
+.subtitleText,
+.descriptionText {
+    font-size: 1.8vw;     /* Reduced by 20% */
+}
+}
+
+@media(max-width: 600px){
+  .titleText {
+    font-size: 3.6vw;     /* Reduced by 20% */
+}
+.subtitleText,
+.descriptionText {
+    font-size: 2.3vw;     /* Reduced by 20% */
+}
+}
+
+@media(max-width: 474px){
+  .titleText {
+    font-size: 4.4vw;     /* Reduced by 20% */
+    font-weight: bolder;
+}
+.subtitleText,
+.descriptionText {
+    font-size: 2.8vw;     /* Reduced by 20% */
+    color:aliceblue;
+}
+}
+
+

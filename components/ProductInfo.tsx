@@ -66,7 +66,7 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
         </div>
       )}
 
-      <div className="flex flex-col gap-2">
+      {/* <div className="flex flex-col gap-2">
         <p className="text-base-medium text-white">Quantity:</p>
         <div className="flex gap-4 items-center">
           <MinusCircle
@@ -79,21 +79,19 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
             onClick={() => setQuantity(quantity + 1)}
           />
         </div>
-      </div>
+      </div> */}
 
-      <button
-        className="border border-white text-base font-bold py-2 shadow-md transition-all duration-150 ease-linear rounded-lg bg-transparent hover:bg-white hover:text-black text-white"
-        onClick={() => {
-          cart.addItem({
-            item: productInfo,
-            quantity,
-            color: selectedColor,
-            size: selectedSize,
-          });
-        }}
-      >
-        Add To Cart
-      </button>
+<button
+  className="border border-white text-base font-bold py-2 px-6 shadow-md transition-all duration-150 ease-linear rounded-lg bg-transparent hover:bg-white hover:text-black text-white"
+  onClick={() => {
+    const phoneNumber = "1234567890"; // Replace with the desired phone number (include country code, e.g., "911234567890" for India)
+    window.open(`https://wa.me/${phoneNumber}`, "_blank");
+  }}
+>
+  Chat on WhatsApp
+</button>
+
+
     </div>
   );
 };
